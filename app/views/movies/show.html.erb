@@ -1,12 +1,17 @@
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<h1>Show Movie</h1>
+<table  class="table">
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
 
-<p>
-  <strong>Text:</strong>
-  <%= @movie.notes %>
-</p>
+  <tr>
+    <td><%= @movie.title %></td>
+    <td><%= @movie.notes %></td>
+  </tr>
+</table>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Back', movies_path, class: 'btn btn-default'  %>
+<%= link_to 'Edit', edit_movie_path(@movie), class: 'btn btn-primary' %>
+<%= link_to 'Delete', movie_path(@movie), method: :delete,
+    data: { confirm: 'Are you sure?' }, class: 'btn btn-danger pull-right' %>
